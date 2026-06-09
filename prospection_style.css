@@ -1,0 +1,261 @@
+/* ==========================================================================
+   GRACELAND ADMISSIONS HUB MASTER STYLESHEET
+   ========================================================================== */
+:root {
+    --brand-blue: #002147;
+    --brand-dark: #001226;
+    --brand-gold: #C5A059;
+    --brand-gold-hover: #b08d4b;
+    --bg-light: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Header Component --- */
+.portal-header {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--brand-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.portal-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    color: var(--brand-blue);
+    letter-spacing: 1px;
+}
+
+.logo-text p {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-gold);
+}
+
+.portal-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover { color: var(--brand-gold); }
+
+.nav-btn-outline {
+    border: 1px solid var(--brand-blue);
+    color: var(--brand-blue);
+    padding: 8px 18px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-btn-outline:hover {
+    background-color: var(--brand-blue);
+    color: #fff;
+}
+
+/* --- Hero Banner Layout --- */
+.admission-hero {
+    position: relative;
+    background-color: var(--brand-dark);
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.badge-tag {
+    background-color: rgba(195, 160, 89, 0.2);
+    border: 1px solid var(--brand-gold);
+    color: var(--brand-gold);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+.admission-hero h2 {
+    font-size: 36px;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.admission-hero p {
+    font-size: 16px;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: var(--brand-gold);
+    color: var(--brand-dark);
+    padding: 12px 28px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+.btn-primary:hover { background-color: var(--brand-gold-hover); }
+
+.btn-secondary {
+    background-color: var(--brand-blue);
+    border: 1px solid var(--brand-gold);
+    color: #fff;
+    padding: 12px 28px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+.btn-secondary:hover { background-color: rgba(255,255,255,0.05); }
+
+/* --- Layout Workspaces --- */
+.portal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.announcement-banner {
+    background-color: #eff6ff;
+    border-left: 4px solid var(--brand-blue);
+    padding: 15px 20px;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.announcement-icon { color: var(--brand-blue); font-size: 18px; }
+.announcement-text { font-size: 14px; color: #1e3a8a; }
+
+.section-wrapper { margin-bottom: 60px; }
+.section-heading { text-align: center; margin-bottom: 35px; }
+.section-heading h2 { color: var(--brand-blue); font-size: 26px; }
+.section-heading p { color: var(--text-muted); font-size: 15px; margin-top: 5px; }
+
+/* --- Program Card Modules --- */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.program-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+}
+
+.program-card:hover { transform: translateY(-3px); }
+.card-icon { font-size: 32px; color: var(--brand-gold); margin-bottom: 15px; }
+.program-card h3 { color: var(--brand-blue); font-size: 20px; margin-bottom: 10px; }
+.program-card p { color: var(--text-main); font-size: 14px; margin-bottom: 20px; }
+
+.duration-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background-color: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* --- Requirements Components --- */
+.requirements-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 30px;
+}
+
+.req-item { margin-bottom: 25px; }
+.req-item:last-child { margin-bottom: 0; }
+.req-title { font-weight: 700; color: var(--brand-blue); font-size: 16px; margin-bottom: 6px; }
+.req-item p { font-size: 14px; color: var(--text-main); padding-left: 24px; }
+
+/* --- Footer Area --- */
+.portal-footer-bottom {
+    background-color: var(--brand-dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    border-top: 3px solid var(--brand-gold);
+}
+
+/* ==========================================================================
+   MOBILE MEDIA QUERY OVERRIDES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; text-align: center; }
+    .admission-hero h2 { font-size: 26px; }
+    .admission-hero p { font-size: 14px; }
+    .hero-actions { flex-direction: column; gap: 10px; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}

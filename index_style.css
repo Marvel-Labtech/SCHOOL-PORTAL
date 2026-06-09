@@ -1,0 +1,559 @@
+/* ==========================================================================
+   GRACELAND CAMPUS PRIMARY LANDING INDEX STYLESHEET
+   ========================================================================== */
+
+:root {
+    --brand-blue: #002147;
+    --brand-dark: #001226;
+    --brand-gold: #C5A059;
+    --bg-canvas: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Base UI Flex and Grid Containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==========================================================================
+   TOP BAR INFO PANEL
+   ========================================================================== */
+.top-bar {
+    background-color: var(--brand-dark);
+    color: #cbd5e1;
+    padding: 10px 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.top-info span {
+    margin-right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.top-links a:hover {
+    color: var(--brand-gold);
+}
+
+/* Gateways Dropdown Mechanics */
+.portal-dropdown {
+    position: relative;
+}
+
+.portal-badge {
+    background-color: var(--brand-blue);
+    color: #ffffff;
+    border: 1px solid var(--brand-gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 210px;
+    display: none;
+    flex-direction: column;
+    margin-top: 8px;
+    z-index: 1100;
+    overflow: hidden;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    color: var(--text-main) !important;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--bg-canvas);
+    color: var(--brand-blue) !important;
+}
+
+/* ==========================================================================
+   PRIMARY NAVIGATION COMPONENT
+   ========================================================================== */
+.main-header {
+    background-color: #ffffff;
+    padding: 18px 0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-logo-icon {
+    font-size: 34px;
+    color: var(--brand-blue);
+}
+
+.logo-text h2 {
+    font-size: 22px;
+    color: var(--brand-blue);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.logo-text p {
+    font-size: 11px;
+    color: var(--brand-gold);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 15px;
+    transition: color var(--transition-speed);
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--brand-blue);
+}
+
+.nav-cta-btn {
+    background-color: var(--brand-gold);
+    color: var(--brand-dark) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    transition: transform var(--transition-speed) !important;
+}
+
+.nav-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--brand-blue);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO FRAMEWORK
+   ========================================================================== */
+.hero-showcase {
+    position: relative;
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #002c5c 100%);
+    color: #ffffff;
+    padding: 100px 0 130px 0;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200') no-repeat center center/cover;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-tag {
+    color: var(--brand-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero-text-content h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text-content p {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary, .btn-hero-secondary {
+    padding: 14px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--transition-speed);
+}
+
+.btn-hero-primary {
+    background-color: var(--brand-gold);
+    color: var(--brand-dark);
+}
+
+.btn-hero-primary:hover {
+    background-color: #ffffff;
+    color: var(--brand-blue);
+}
+
+.btn-hero-secondary {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn-hero-secondary:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.hero-visual-graphics {
+    text-align: center;
+}
+
+.floating-icon {
+    font-size: 160px;
+    color: rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   METRICS REVENUE STATS DISPLAY
+   ========================================================================== */
+.metrics-display-section {
+    padding: 0;
+    transform: translateY(-45px);
+    position: relative;
+    z-index: 10;
+}
+
+.metric-block-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+.metric-icon-box {
+    background-color: rgba(0, 33, 71, 0.06);
+    color: var(--brand-blue);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.metric-data-strings h3 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--brand-dark);
+    line-height: 1.1;
+}
+
+.metric-data-strings p {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   ACADEMIC PROGRAMS DISPLAY TILES
+   ========================================================================== */
+.academic-programs-section {
+    padding: 40px 0 80px 0;
+    background-color: var(--bg-canvas);
+}
+
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header-centered h2 {
+    font-size: 32px;
+    color: var(--brand-blue);
+    font-weight: 800;
+}
+
+.section-header-centered p {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.program-display-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.program-display-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.program-card-icon {
+    font-size: 36px;
+    color: var(--brand-gold);
+    margin-bottom: 20px;
+}
+
+.program-display-card h3 {
+    font-size: 22px;
+    color: var(--brand-blue);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.program-display-card p {
+    color: var(--text-main);
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.duration-badge {
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--bg-canvas);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   CORE VALUES PILLARS
+   ========================================================================== */
+.core-values-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.value-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.value-icon {
+    font-size: 32px;
+    color: var(--brand-blue);
+    margin-bottom: 15px;
+}
+
+.value-card h4 {
+    font-size: 18px;
+    color: var(--brand-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.value-card p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   INSTITUTIONAL FOOTER ENGINE
+   ========================================================================== */
+.main-footer {
+    background-color: var(--brand-dark);
+    color: #94a3b8;
+    padding: 60px 0 20px 0;
+    font-size: 14.5px;
+    border-top: 4px solid var(--brand-gold);
+}
+
+.main-footer h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-about p {
+    max-width: 320px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-contact p {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   TABLET / MOBILE RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+@media (max-width: 991px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual-graphics { display: none; }
+}
+
+@media (max-width: 768px) {
+    .top-bar { display: none; }
+    .menu-toggle { display: block; }
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px;
+        border-bottom: 2px solid var(--border-color);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+    .nav-menu.active { display: block; }
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    .nav-cta-btn { text-align: center; display: block; }
+    .hero-text-content h1 { font-size: 32px; }
+    .metrics-display-section { transform: translateY(-20px); }
+}

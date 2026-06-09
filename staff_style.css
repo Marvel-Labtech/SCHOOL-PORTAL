@@ -1,0 +1,226 @@
+/* ==========================================================================
+   GRACELAND CAMPUS CORE STAFF WORKSPACE DASHBOARD STYLESHEET
+   ========================================================================== */
+
+:root {
+    --staff-blue: #002147;
+    --staff-dark: #001226;
+    --staff-gold: #C5A059;
+    --staff-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --transition-speed: 0.25s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--staff-bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Structural Layout Wrapper Split */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.action-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+.text-center { text-align: center; }
+.code-font { font-family: monospace; font-weight: bold; color: var(--staff-blue); }
+
+/* ==========================================================================
+   SIDEBAR CONTAINER PANELS
+   ========================================================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--staff-dark);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh; /* Fixed viewport constraint */
+    z-index: 999;
+    transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-brand {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.brand-icon { font-size: 26px; color: var(--staff-gold); }
+.brand-text h3 { font-size: 16px; font-weight: 800; letter-spacing: 0.5px; color: #fff; }
+.brand-text p { font-size: 10px; color: var(--staff-gold); text-transform: uppercase; font-weight: 700; }
+
+.sidebar-user-profile {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.avatar-box {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255,255,255,0.04);
+    border: 1px solid var(--staff-gold);
+    color: var(--staff-gold);
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.sidebar-user-profile h4 { font-size: 14px; font-weight: 600; color: #fff; }
+.role-badge { font-size: 11px; background-color: rgba(197, 160, 89, 0.15); color: var(--staff-gold); padding: 2px 10px; border-radius: 12px; }
+
+.sidebar-menu { padding: 15px 0; flex-grow: 1; }
+
+/* Cleaned Navigation Lists */
+.sidebar-menu ul { 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu a { display: flex; align-items: center; gap: 15px; padding: 12px 24px; color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 600; border-left: 4px solid transparent; transition: all var(--transition-speed); }
+.sidebar-menu a:hover, .sidebar-menu a.active { background-color: rgba(255,255,255,0.02); color: #fff; border-left-color: var(--staff-gold); }
+.menu-divider { height: 1px; background-color: rgba(255,255,255,0.06); margin: 15px 0; }
+.logout-btn-link:hover { background-color: rgba(239, 68, 68, 0.08) !important; color: #ef4444 !important; border-left-color: #ef4444 !important; }
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+.main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 30px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+}
+
+.content-header {
+    background-color: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.sidebar-toggle {
+    display: none; /* Controlled dynamically by responsive break rules below */
+    background: none;
+    border: none;
+    color: var(--staff-blue);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.content-header h2 { font-size: 18px; font-weight: 700; color: var(--staff-blue); }
+.live-clock { font-size: 13px; font-weight: 600; color: var(--text-muted); background-color: var(--staff-bg); padding: 6px 12px; border-radius: 4px; }
+
+/* ==========================================================================
+   METRICS & CARD MATRICES
+   ========================================================================== */
+.metric-status-card { border-radius: 6px; padding: 22px 25px; color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+.blue-gradient { background: linear-gradient(135deg, var(--staff-blue) 0%, #003366 100%); }
+.gold-gradient { background: linear-gradient(135deg, #b08d4b 0%, var(--staff-gold) 100%); }
+.dark-gradient { background: linear-gradient(135deg, var(--staff-dark) 0%, #061e38 100%); }
+.card-body-flex { display: flex; justify-content: space-between; align-items: center; }
+.metric-numeric-strings h3 { font-size: 28px; font-weight: 700; }
+.metric-numeric-strings p { font-size: 13px; opacity: 0.85; margin-top: 2px; }
+.metric-graphic-box { font-size: 32px; opacity: 0.2; }
+
+/* ==========================================================================
+   PANELS & TABLES
+   ========================================================================== */
+.workspace-panel { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; }
+.panel-header { padding: 14px 20px; border-bottom: 1px solid var(--border-color); background-color: #fafafa; }
+.panel-header h3 { font-size: 14.5px; font-weight: 700; color: var(--staff-blue); }
+.panel-body { padding: 20px; }
+.panel-helper-text { font-size: 13.5px; color: var(--text-muted); margin-bottom: 15px; }
+
+.action-trigger-btn { padding: 10px 16px; border-radius: 4px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background var(--transition-speed); }
+.cta-blue { background-color: var(--staff-blue); color: #fff; }
+.cta-blue:hover { background-color: var(--staff-dark); }
+
+.module-check-list { list-style: none; }
+.module-check-list li { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+.module-check-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.module-check-list li:first-child { padding-top: 0; }
+.module-details strong { font-size: 14px; color: var(--staff-blue); display: block; }
+.module-details span { font-size: 12.5px; color: var(--text-muted); }
+.badge-status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+.badge-status.computational { background-color: rgba(197, 160, 89, 0.12); color: #9a7633; }
+
+.sub-badge { font-size: 11px; background-color: #22c55e; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.responsive-data-matrix { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.responsive-data-matrix th { background-color: #f8fafc; color: var(--text-muted); padding: 12px 16px; font-weight: 700; font-size: 12.5px; border-bottom: 2px solid var(--border-color); text-transform: uppercase; }
+.responsive-data-matrix td { padding: 14px 16px; border-bottom: 1px solid var(--border-color); }
+.table-track-tag { background-color: #f1f5f9; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+
+.table-action-btn { padding: 6px 12px; border-radius: 4px; border: 1px solid var(--staff-blue); background: transparent; color: var(--staff-blue); font-size: 12.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all var(--transition-speed); }
+.table-action-btn:hover { background-color: var(--staff-blue); color: #fff; }
+
+/* ==========================================================================
+   RESPONSIVE MEDIA BREAKPOINTS & MOBILE SIDEBAR OVERLAYS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .sidebar { 
+        transform: translateX(-260px); 
+        box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    }
+    .sidebar.mobile-open { 
+        transform: translateX(0); 
+    }
+    .main-content { 
+        margin-left: 0; 
+        width: 100%; 
+        padding: 20px; 
+    }
+    .sidebar-toggle { 
+        display: block; 
+    }
+}
+
+@media (max-width: 768px) {
+    .action-matrix-grid { 
+        grid-template-columns: 1fr; 
+    }
+}

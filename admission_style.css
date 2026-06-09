@@ -1,0 +1,201 @@
+/* ==========================================================================
+   GRACELAND ONLINE ADMISSION FORM STYLESHEET
+   ========================================================================== */
+:root {
+    --brand-blue: #002147;
+    --brand-dark: #001226;
+    --brand-gold: #C5A059;
+    --bg-surface: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --border-color: #cbd5e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-wrapper {
+    background-color: var(--card-bg);
+    max-width: 700px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 8px;
+    border-top: 5px solid var(--brand-gold);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.form-header h2 {
+    font-size: 22px;
+    color: var(--brand-blue);
+    letter-spacing: 0.5px;
+}
+
+.form-header p {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-gold);
+}
+
+.form-tag {
+    display: inline-block;
+    margin-top: 12px;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-blue);
+}
+
+/* Form Layout Grids */
+.form-section-title {
+    font-size: 15px;
+    color: var(--brand-blue);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f8fafc;
+    color: var(--text-main);
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus, 
+.input-group select:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--brand-blue);
+    background-color: #fff;
+}
+
+/* Submit Action Button */
+.btn-submit-form {
+    width: 100%;
+    background-color: var(--brand-blue);
+    color: #ffffff;
+    border: 1px solid var(--brand-gold);
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.btn-submit-form:hover {
+    background-color: var(--brand-gold);
+    color: var(--brand-dark);
+}
+
+/* System Alerts Banners */
+.alert-box {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-success {
+    background-color: #ecfdf5;
+    color: #10b981;
+    border: 1px solid #a7f3d0;
+}
+
+.alert-danger {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fca5a5;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form-footer a {
+    color: var(--brand-blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-footer a:hover {
+    color: var(--brand-gold);
+}
+
+/* Responsive Breakpoints Rules */
+@media (max-width: 600px) {
+    .form-wrapper { padding: 25px 20px; }
+    .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; gap: 0; }
+}

@@ -1,0 +1,206 @@
+/* ==========================================================================
+   GRACELAND CAMPUS CORE ADMIN DASHBOARD SYSTEM WORKSPACE STYLESHEET
+   ========================================================================== */
+
+:root {
+    --admin-blue: #002147;
+    --admin-dark: #001226;
+    --admin-gold: #C5A059;
+    --admin-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --transition-speed: 0.25s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--admin-bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Structural Master Layout Organizers */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.action-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+/* ==========================================================================
+   SIDEBAR COMPONENT DRAWERS
+   ========================================================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--admin-dark);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-brand {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.brand-icon { font-size: 26px; color: var(--admin-gold); }
+.brand-text h3 { font-size: 16px; font-weight: 800; letter-spacing: 0.5px; color: #fff; }
+.brand-text p { font-size: 10px; color: var(--admin-gold); text-transform: uppercase; font-weight: 700; }
+
+.sidebar-user-profile {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.avatar-box {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255,255,255,0.04);
+    border: 1px solid var(--admin-gold);
+    color: var(--admin-gold);
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.sidebar-user-profile h4 { font-size: 14px; font-weight: 600; color: #fff; }
+.role-badge { font-size: 11px; background-color: rgba(197, 160, 89, 0.15); color: var(--admin-gold); padding: 2px 10px; border-radius: 12px; }
+
+.sidebar-menu { padding: 15px 0; flex-grow: 1; }
+.sidebar-menu ul { 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu a { display: flex; align-items: center; gap: 15px; padding: 12px 24px; color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 600; border-left: 4px solid transparent; transition: all var(--transition-speed); }
+.sidebar-menu a:hover, .sidebar-menu a.active { background-color: rgba(255,255,255,0.02); color: #fff; border-left-color: var(--admin-gold); }
+.menu-divider { height: 1px; background-color: rgba(255,255,255,0.06); margin: 15px 0; }
+.logout-btn-link:hover { background-color: rgba(239, 68, 68, 0.08) !important; color: #ef4444 !important; border-left-color: #ef4444 !important; }
+
+/* ==========================================================================
+   MAIN SYSTEM WORKSPACE VIEWPORT
+   ========================================================================== */
+.main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 30px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    transition: margin var(--transition-speed) ease, width var(--transition-speed) ease;
+}
+
+.content-header {
+    background-color: var(--card-bg);
+    padding: 16px 24px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.sidebar-toggle {
+    display: block; 
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--admin-blue);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background var(--transition-speed);
+}
+
+.sidebar-toggle:hover { background-color: #cbd5e1; }
+.content-header h2 { font-size: 18px; font-weight: 700; color: var(--admin-blue); }
+.live-clock { font-size: 13px; font-weight: 600; color: var(--text-muted); background-color: var(--admin-bg); padding: 6px 12px; border-radius: 4px; }
+
+/* Global System Summary Metrics Blocks */
+.metric-status-card { border-radius: 6px; padding: 22px 25px; color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+.blue-gradient { background: linear-gradient(135deg, var(--admin-blue) 0%, #003366 100%); }
+.gold-gradient { background: linear-gradient(135deg, #b08d4b 0%, var(--admin-gold) 100%); }
+.dark-gradient { background: linear-gradient(135deg, var(--admin-dark) 0%, #061e38 100%); }
+.card-body-flex { display: flex; justify-content: space-between; align-items: center; }
+.metric-numeric-strings h3 { font-size: 28px; font-weight: 700; }
+.metric-numeric-strings p { font-size: 13px; opacity: 0.85; margin-top: 2px; }
+.metric-graphic-box { font-size: 32px; opacity: 0.2; }
+
+/* Operational Core Content Panels */
+.workspace-panel { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; }
+.panel-header { padding: 14px 20px; border-bottom: 1px solid var(--border-color); background-color: #fafafa; }
+.panel-header h3 { font-size: 14.5px; font-weight: 700; color: var(--admin-blue); }
+.panel-body { padding: 20px; }
+.panel-helper-text { font-size: 13.5px; color: var(--text-muted); margin-bottom: 15px; }
+
+/* Forms and Inputs Formatting Engine */
+.broadcast-form-layout { display: flex; flex-direction: column; gap: 12px; }
+.form-group-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.form-group-row .input-item { flex: 1; min-width: 200px; }
+.input-item { display: flex; flex-direction: column; gap: 6px; }
+.input-item label { font-size: 12.5px; font-weight: 700; color: var(--admin-blue); text-transform: uppercase; }
+.input-item input, .input-item select, .input-item textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 13.5px; background-color: #fafafa; color: var(--text-main); outline: none; transition: border var(--transition-speed); }
+.input-item input:focus, .input-item select:focus, .input-item textarea:focus { border-color: var(--admin-gold); background-color: #fff; }
+
+/* Control Action Elements Buttons Group */
+.action-buttons-group { display: flex; gap: 12px; }
+.action-trigger-btn { padding: 11px 18px; border-radius: 4px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background var(--transition-speed); }
+.cta-blue { background-color: var(--admin-blue); color: #fff; }
+.cta-blue:hover { background-color: var(--admin-dark); }
+.cta-gold { background-color: var(--admin-gold); color: var(--admin-dark); }
+.cta-gold:hover { background-color: #b08d4b; color: #fff; }
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES MECHANICS
+   ========================================================================== */
+.sidebar.mobile-open { transform: translateX(-260px); }
+.sidebar.mobile-open + .main-content { margin-left: 0; width: 100%; }
+
+@media (max-width: 1024px) {
+    .sidebar { transform: translateX(-260px); box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
+    .sidebar.mobile-open { transform: translateX(0); }
+    .main-content { margin-left: 0; width: 100%; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+    .action-matrix-grid { grid-template-columns: 1fr; }
+    .form-group-row { flex-direction: column; gap: 12px; }
+}
